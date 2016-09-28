@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+<h2><%= @restaurant.name %></h2>
 
 <p>
-  <strong>Opening hours:</strong>
   <%= @restaurant.opening_hours %>
-</p>
-
-<p>
-  <strong>Address:</strong>
   <%= @restaurant.address %>
 </p>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<h3>Items:</h3>
+
+<% @restaurant.menu_items.each do |menu_item| %>
+  <div class="menu-item">
+    <h4><%= menu_item.name %></h4>
+    <ul>
+      <li><%= menu_item.price %></li>
+      <li><%= menu_item.description %></li>
+    </ul>
+  </div>
+<% end %>
+
+<div class="action">
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+  <%= link_to 'Back', restaurants_path %>
+</div>
