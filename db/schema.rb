@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927155151) do
+ActiveRecord::Schema.define(version: 20160928151638) do
+
+  create_table "menu_items", force: :cascade do |t|
+    t.string   "name"
+    t.float    "price"
+    t.text     "description"
+    t.integer  "restaurant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "menu_items", ["restaurant_id"], name: "index_menu_items_on_restaurant_id"
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
