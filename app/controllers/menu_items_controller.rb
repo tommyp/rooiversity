@@ -14,6 +14,7 @@ class MenuItemsController < ApplicationController
 
   # GET /menu_items/new
   def new
+    @restaurants = Restaurant.all
     @menu_item = MenuItem.new
   end
 
